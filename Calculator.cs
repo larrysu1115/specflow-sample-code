@@ -12,7 +12,7 @@ namespace SpecFlowDemo
             int unitPrice = QueryUnitPriceBySku(this.Sku);
             int totalPrice = unitPrice * Amount;
             if (Sku.Contains("sale", StringComparison.InvariantCultureIgnoreCase))
-                totalPrice = (int)(totalPrice * 0.8);
+                totalPrice = (int)(totalPrice * 0.5);
             return totalPrice;
         }
 

@@ -116,6 +116,56 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Calculator makes 50% discount for products on sale")]
+        [NUnit.Framework.TestCaseAttribute("A-123", "3", "300", null)]
+        [NUnit.Framework.TestCaseAttribute("A-123-sale", "3", "150", null)]
+        [NUnit.Framework.TestCaseAttribute("B-xyz", "2", "400", null)]
+        [NUnit.Framework.TestCaseAttribute("B-xyz-sale", "2", "200", null)]
+        public virtual void CalculatorMakes50DiscountForProductsOnSale(string sku, string amount, string price, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("sku", sku);
+            argumentsOfScenario.Add("amount", amount);
+            argumentsOfScenario.Add("price", price);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Calculator makes 50% discount for products on sale", null, tagsOfScenario, argumentsOfScenario);
+#line 12
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 13
+   testRunner.Given(string.Format("I enter SKU number \'{0}\'", sku), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 14
+   testRunner.And(string.Format("I enter purchase amount {0}", amount), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+   testRunner.When("I clicks calculate", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 16
+   testRunner.Then(string.Format("the calculator shows {0} as the total price to pay", price), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
