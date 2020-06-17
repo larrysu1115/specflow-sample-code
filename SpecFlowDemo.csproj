@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RunSettingsFilePath>$(MSBuildProjectDirectory)/.runsettings</RunSettingsFilePath>
+  </PropertyGroup>
+
+  <Target Name="document">
+    <PropertyGroup>
+      <PicklesExe>$(NuGetPackageRoot)pickles.commandline\2.20.1\tools\pickles.exe</PicklesExe>
+    </PropertyGroup>
+    <Exec Command="$(PicklesExe) -sn=Demo -sv=v1.0 --trfmt=vstest -df=dhtml -f=./Features  -o=./doc --lr=TestResults\SpecFlowDemo.xml" />
+  </Target>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.6.1" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Pickles" Version="2.20.1" />
+    <PackageReference Include="Pickles.CommandLine" Version="2.20.1" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="83.0.4103.3900" />
+    <PackageReference Include="SpecFlow" Version="3.3.22-beta" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.3.22-beta" />
+    <PackageReference Include="SpecFlow.NUnit.Runners" Version="3.3.22-beta" />
+    <PackageReference Include="SpecFlow.Tools.MsBuild.Generation" Version="3.3.22-beta" />
+  </ItemGroup>
+</Project>
